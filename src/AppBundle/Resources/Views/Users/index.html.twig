@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Login</title>
+</head>
+<body>
+<header>
+
+</header>
+
+<style>
+    .no-float {
+        float: none;
+    }
+    .errors {
+        color: red;
+    }
+    .top-10 {
+        margin-top: 10px;
+    }
+    @media (max-width: 770px) {
+        .col-ssm-6 {
+            width: 80%;
+        }
+        .col-ssm-3 {
+            width: 30%;
+        }
+    }
+
+</style>
+
+<div class="full-container">
+
+    {% for message in app.session.flashBag.get("warning") %}
+        <div class="alert alert-danger top-10">
+            <p>{{ message }}</p>
+        </div>
+    {% endfor %}
+
+    <form action="{{ path("users") }}" method="post">
+        <div class="col-md-7 col-lg-7 col-sm-7 no-float center-block">
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <label for="name">Nombre</label>
+                    <input id="name" name="name" type="text" class="form-control"
+                           {% if name is defined %}value="{{ name }}" {% endif %}>
+                    <p class="errors">{% if errors.name is defined %} {{ errors.name }}{% endif %}</p>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <label for="lastName">Apellidos</label>
+                    <input id="lastName" name="lastName" type="text" class="form-control"
+                            {% if lastName is defined %} value="{{ lastName }}"{% endif %}>
+                    <p class="errors">{% if errors.lastName is defined %}{{ errors.lastName }}{% endif %}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <label for="email">Correo electronico</label>
+                    <input id="email" name="email" type="email" class="form-control"
+                           {% if email is defined %}value="{{ email }}"{% endif %}>
+                    <p class="errors">{% if errors.email is defined %}{{ errors.email }}{% endif %}</p>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <label for="password">Contraseña</label>
+                    <input id="password" name="password" type="password" class="form-control">
+                    <p class="errors">{% if errors.password is defined %}{{ errors.password }}{% endif %}</p>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 10px">
+                <div class="col-md-6 col-sm-6">
+                    <button type="submit" class="btn btn-primary">Crear</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<footer>
+
+</footer>
+</body>
+</html>

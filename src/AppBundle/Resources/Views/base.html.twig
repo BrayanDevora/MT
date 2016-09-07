@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>MT</title>
+    <link rel="stylesheet" href="{{ asset("bundles/app/css/bootstrap.min.css") }}">
+    <link rel="stylesheet" href="{{ asset("bundles/app/css/users.css") }}">
+
+</head>
+<body>
+<header class="header">
+    <div class="header_wrap">
+        <div class="center">
+            <a href="{{ path('homepage') }}">
+                <img src="{{ asset('bundles/app/images/MT.jpg') }}" class="logo-img"/>
+            </a>
+            <button onclick="window.location.href='{{ path('users') }}'" class="button">Inicia Sesion</button>
+        </div>
+    </div>
+</header>
+<p>Loco</p>
+
+<main class="main">
+    {% block main %}
+    {% endblock %}
+</main>
+
+<footer class="footer">
+
+</footer>
+<script src="{{ asset('bundles/app/js/jquery.min.js') }}"></script>
+<script src="{{ asset('bundles/app/js/bootstrap.min.js') }}"></script>
+</body>
+</html>
